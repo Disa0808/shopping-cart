@@ -1,1 +1,21 @@
-<h1>User profile</h1>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 m-auto">
+        <h1>User Profile</h1>
+        <hr>
+        <h2>My Orders:</h2>
+        {{# each orders }}
+        <div class="card text-center mb-5">
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {{# each this.items }}
+                    <li class="list-group-item">{{ this.item.title }} | {{ this.qty }} Units<span class="badge badge-pill badge-dark float-right mr-2">${{ this.price }}</span></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="card-footer text-muted font-weight-bold">
+            ${{ this.cart.totalPrice }}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
